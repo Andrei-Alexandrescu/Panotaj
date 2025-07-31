@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Generator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>Panotaj Itotem</h1>
+    </header>
+    
+    <main class="main-container">
+        <div class="left-panel">
+            <section class="controls-section">
+                
+                <div class="panel-section">
+                    <h2>Dimensiuni</h2>
+                    <div class="control-group">
+                        <label for="latime">Latime perete</label>
+                        <input type="number" id="latime" value="25" step="any">
+                        
+                    </div>
+                    <div class="control-group">
+                        <label for="inaltime">Inaltime perete</label>
+                        <input type="number" id="inaltime" value="25" step="any">
+                        
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h2>Categorie</h2>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="categorie" value="Standard"> Standard</label>
+                        <label><input type="checkbox" name="categorie" value="Video Wall"> Video Wall</label>
+                        <label><input type="checkbox" name="categorie" value="Interactiv"> Interactiv</label>
+                        <label><input type="checkbox" name="categorie" value="High Brightening"> High Brightening</label>
+                    </div>
+                </div>
+              
+                <div class="panel-section">
+                    <h2>Diagonala</h2>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="diagonala" value="15"> 15</label>
+                        <label><input type="checkbox" name="diagonala" value="22"> 22</label>
+                        <label><input type="checkbox" name="diagonala" value="32"> 32</label>
+                        <label><input type="checkbox" name="diagonala" value="43"> 43</label>
+                        <label><input type="checkbox" name="diagonala" value="49"> 49</label>
+                        <label><input type="checkbox" name="diagonala" value="55"> 55</label>
+                        <label><input type="checkbox" name="diagonala" value="65"> 65</label>
+                        <label><input type="checkbox" name="diagonala" value="86"> 86</label>
+                    </div>
+                </div>
+                
+                <div class="panel-section">
+                    <h2>Orientare</h2>
+                    <div class="radio-group">
+                        <label><input type="radio" name="orientare" value="Portret" checked> Portret</label>
+                        <label><input type="radio" name="orientare" value="Landscape"> Landscape</label>
+                    </div>
+                </div>
+                <button id="generate-btn">Genereaza perete</button>
+                <div class="info-display">
+                    <div id="matrix-info"></div>
+                </div>
+            </section>
+        </div>
+        
+        <div class="right-panel">
+            <section class="matrix-section">
+                <h2>Afisare perete</h2>
+                <div id="matrix-container"></div>
+            </section>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>

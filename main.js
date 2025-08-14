@@ -85,6 +85,7 @@ function setupMatrixDisplay() {
 
             // For each combination, generate a matrix if an object matches
             let foundAny = false;
+            let matrixCounter = 1;
             selectedCategories.forEach(category => {
                 selectedDiagonale.forEach(diagonala => {
                     const matchedObject = objects.find(obj =>
@@ -103,10 +104,17 @@ function setupMatrixDisplay() {
                         // Create a wrapper for info + matrix
                         const wrapper = document.createElement('div');
                         wrapper.className = 'matrix-box';
+                        
+                        // Add matrix number header
+                        const numberHeader = document.createElement('div');
+                        numberHeader.className = 'matrix-number';
+                        numberHeader.innerHTML = `<span class="matrix-number-badge">Matrix ${matrixCounter}</span>`;
+                        
                         // Info
                         const infoDiv = document.createElement('div');
                         infoDiv.innerHTML = `
                             <div>Dimensiuni perete: ${latime} x ${inaltime} (cm)</div>
+                           
                             <div>Ecran: <b>${matchedObject.name}</b></div>
                             <div>Numar ecrane: ...</div>
                         `;
@@ -116,11 +124,13 @@ function setupMatrixDisplay() {
                         const { matrice, total } = plaseazaObiecte(rows, cols, shape);
                         displayMatrixOnPage(matrice, matrixDiv);
                         // Update objects placed info
-                        infoDiv.querySelector('div:last-child').textContent = `Numar ercane: ${total}`;
+                        infoDiv.querySelector('div:last-child').textContent = `Numar ecrane: ${total}`;
                         // Append
+                        wrapper.appendChild(numberHeader);
                         wrapper.appendChild(infoDiv);
                         wrapper.appendChild(matrixDiv);
                         matrixContainer.appendChild(wrapper);
+                        matrixCounter++;
                     }
                 });
             });
@@ -183,12 +193,35 @@ function displayMatrixOnPage(matrice, container) {
             } else {
                 cellDiv.classList.add('filled');
                 cellDiv.classList.add(`filled-${cell}`);
-                if (cellSize >= 12) {
+                
+                // Add object number display
+                if (cellSize >= 16) {
+                    cellDiv.textContent = cell;
+                } else if (cellSize >= 12) {
                     cellDiv.textContent = cell;
                 } else {
                     cellDiv.textContent = '';
                 }
-                cellDiv.title = `(${rowIdx+1},${colIdx+1}): ${cell}`;
+                
+                // Add object border styling
+                cellDiv.style.border = '2px solid #ffffff';
+                cellDiv.style.boxShadow = 'inset 0 0 0 1px rgba(255,255,255,0.3)';
+                
+                cellDiv.title = `Object ${cell} at (${rowIdx+1},${colIdx+1})`;
+            }
+
+            // Add visual separation between objects
+            if (cell !== 0) {
+                // Check if this cell is at the edge of an object
+                const isLeftEdge = colIdx === 0 || matrice[rowIdx][colIdx - 1] !== cell;
+                const isRightEdge = colIdx === numCols - 1 || matrice[rowIdx][colIdx + 1] !== cell;
+                const isTopEdge = rowIdx === 0 || matrice[rowIdx - 1][colIdx] !== cell;
+                const isBottomEdge = rowIdx === numRows - 1 || matrice[rowIdx + 1][colIdx] !== cell;
+                
+                if (isLeftEdge) cellDiv.style.borderLeft = '3px solid #ffffff';
+                if (isRightEdge) cellDiv.style.borderRight = '3px solid #ffffff';
+                if (isTopEdge) cellDiv.style.borderTop = '3px solid #ffffff';
+                if (isBottomEdge) cellDiv.style.borderBottom = '3px solid #ffffff';
             }
 
             rowDiv.appendChild(cellDiv);

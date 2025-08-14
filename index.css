@@ -5,175 +5,250 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    color: #ffffff;
+    background: #0a0e1a;
     min-height: 100vh;
 }
 
 header {
-    background: linear-gradient(135deg, #1e0101 0%, #e83d45 100%);
+    background: linear-gradient(135deg, #0a0e1a 0%, #1a1f2e 100%);
     color: white;
     text-align: center;
-    padding: 1.5rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 2rem 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    border-bottom: 2px solid #0066cc;
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     margin-bottom: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
 .main-container {
     display: flex;
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 120px);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    gap: 2rem;
 }
 
 .left-panel {
-    width: 25%;
-    background: white;
-    border-right: 2px solid #e0e0e0;
+    width: 30%;
+    background: #1a1f2e;
+    border-radius: 12px;
     padding: 2rem;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    border: 1px solid #2a2f3e;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 1.5rem;
+    gap: 2rem;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
 }
 
 .right-panel {
-    width: 75%;
+    width: 70%;
     padding: 2rem;
-    background: #f8f9fa;
 }
 
 .controls-section {
     display: flex;
     flex-direction: column;
     height: 100%;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .panel-section {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid #f0f0f0;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #2a2f3e;
+    position: relative;
 }
 
 .panel-section:last-child {
     border-bottom: none;
 }
 
+.panel-section::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #0066cc;
+    border-radius: 1px;
+}
+
 .panel-section h2 {
-    color: #667eea;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
     text-align: left;
     letter-spacing: 0.5px;
+    font-weight: 600;
+    position: relative;
+}
+
+.panel-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 25px;
+    height: 2px;
+    background: #0066cc;
+    border-radius: 1px;
 }
 
 .control-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .control-group label {
     display: block;
-    font-weight: bold;
-    color: #667eea;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+    font-weight: 500;
+    color: #e0e0e0;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
 }
 
 .control-group input {
     width: 100%;
-    padding: 0.8rem;
-    border: 2px solid #ddd;
+    padding: 0.9rem;
+    border: 1px solid #2a2f3e;
     border-radius: 8px;
     font-size: 1rem;
-    background: white;
-    transition: border-color 0.3s ease;
+    background: #0a0e1a;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .control-group input:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    border-color: #0066cc;
+    background: #0f1420;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2), inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .checkbox-group,
 .radio-group {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 0.8rem;
     margin-bottom: 0.5rem;
 }
 
 .checkbox-group label,
 .radio-group label {
     font-weight: 500;
-    color: #333;
-    font-size: 1rem;
+    color: #e0e0e0;
+    font-size: 0.95rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
     cursor: pointer;
     user-select: none;
+    padding: 0.6rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.checkbox-group label:hover,
+.radio-group label:hover {
+    background: rgba(0, 102, 204, 0.1);
+    border-color: rgba(0, 102, 204, 0.3);
 }
 
 .checkbox-group input[type="checkbox"],
 .radio-group input[type="radio"] {
-    accent-color: #667eea;
+    accent-color: #0066cc;
     width: 1.1em;
     height: 1.1em;
 }
 
 #generate-btn {
     width: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
     color: white;
     border: none;
-    padding: 1rem;
+    padding: 1.1rem;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1.1rem;
-    font-weight: bold;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
     margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+    position: relative;
+    overflow: hidden;
 }
 
 #generate-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+    background: linear-gradient(135deg, #0077e6 0%, #0066cc 100%);
+}
+
+#generate-btn:active {
+    transform: translateY(0);
 }
 
 .info-display {
-    background: #f8f9fa;
-    padding: 1rem;
+    background: #0f1420;
+    padding: 1.2rem;
     border-radius: 8px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #2a2f3e;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
 #matrix-info {
     text-align: center;
-    font-size: 1.1rem;
-    color: #667eea;
-    font-weight: bold;
+    font-size: 1rem;
+    color: #0066cc;
+    font-weight: 600;
 }
 
 .matrix-section {
-    background: white;
+    background: #1a1f2e;
     border-radius: 12px;
-    padding: 2rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    height: fit-content;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    border: 1px solid #2a2f3e;
+    min-height: 500px;
 }
 
 .matrix-section h2 {
-    color: #667eea;
-    margin-bottom: 2rem;
-    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 2.5rem;
+    font-size: 2rem;
     text-align: center;
+    font-weight: 600;
+    position: relative;
+}
+
+.matrix-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #0066cc;
+    border-radius: 2px;
 }
 
 .placeholder-text {
@@ -181,40 +256,98 @@ header h1 {
     justify-content: center;
     align-items: center;
     height: 100%;
-    color: #aaa;
-    font-size: 1.5rem;
+    color: #8a8a8a;
+    font-size: 1.6rem;
     font-style: italic;
     text-align: center;
-    min-height: 300px;
+    min-height: 400px;
+    background: #0f1420;
+    border-radius: 12px;
+    border: 2px dashed #2a2f3e;
 }
 
 #matrix-container {
     display: flex !important;
     flex-direction: column !important;
     width: 100%;
+    gap: 1.5rem;
 }
 
 .matrix-box {
     display: block !important;
     width: 100%;
     max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-    background: rgba(255,0,0,0.15); /* Optional: slightly different red for separation */
-    border: 2px solid #fff;
+    margin: 0 auto;
+    background: #0f1420;
+    border: 1px solid #2a2f3e;
     border-radius: 12px;
-    margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
     box-sizing: border-box;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.matrix-number {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.matrix-number-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.matrix-number-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.matrix-box:hover .matrix-number-badge::before {
+    left: 100%;
+}
+
+.matrix-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #0066cc;
+}
+
+.matrix-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    border-color: #0066cc;
 }
 
 .matrix {
     display: inline-block;
-    border: 3px solid #667eea;
-    border-radius: 12px;
+    border: 2px solid #0066cc;
+    border-radius: 8px;
     overflow: hidden;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: #1a1f2e;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-top: 1rem;
 }
 
 .matrix-row {
@@ -224,54 +357,91 @@ header h1 {
 .matrix-cell {
     width: 45px;
     height: 45px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #2a2f3e;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     font-size: 1rem;
     transition: all 0.3s ease;
+    position: relative;
+    box-sizing: border-box;
 }
 
 .matrix-cell.empty {
-    background-color: #f8f9fa;
-    color: #6c757d;
+    background: #0a0e1a;
+    color: #4a4a4a;
+    border: 1px solid #1a1f2e;
 }
 
 .matrix-cell.filled {
     color: white;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ffffff;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+    font-weight: 700;
+    font-size: 1.1rem;
 }
 
-.matrix-cell.filled-1 { background-color: #667eea; }
-.matrix-cell.filled-2 { background-color: #764ba2; }
-.matrix-cell.filled-3 { background-color: #f093fb; }
-.matrix-cell.filled-4 { background-color: #f5576c; }
-.matrix-cell.filled-5 { background-color: #4facfe; }
-.matrix-cell.filled-6 { background-color: #00f2fe; }
-.matrix-cell.filled-7 { background-color: #43e97b; }
-.matrix-cell.filled-8 { background-color: #38f9d7; }
-.matrix-cell.filled-9 { background-color: #fa709a; }
-.matrix-cell.filled-10 { background-color: #fee140; }
+.matrix-cell.filled:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(255,255,255,0.4), inset 0 0 0 1px rgba(255,255,255,0.5);
+}
+
+/* Object edge highlighting */
+.matrix-cell.filled[style*="border-left: 3px solid #ffffff"] {
+    border-left: 3px solid #ffffff !important;
+}
+
+.matrix-cell.filled[style*="border-right: 3px solid #ffffff"] {
+    border-right: 3px solid #ffffff !important;
+}
+
+.matrix-cell.filled[style*="border-top: 3px solid #ffffff"] {
+    border-top: 3px solid #ffffff !important;
+}
+
+.matrix-cell.filled[style*="border-bottom: 3px solid #ffffff"] {
+    border-bottom: 3px solid #ffffff !important;
+}
+
+.matrix-cell.filled-1 { background: #0066cc; }
+.matrix-cell.filled-2 { background: #0052a3; }
+.matrix-cell.filled-3 { background: #003d7a; }
+.matrix-cell.filled-4 { background: #002952; }
+.matrix-cell.filled-5 { background: #001429; }
+.matrix-cell.filled-6 { background: #004080; }
+.matrix-cell.filled-7 { background: #00264d; }
+.matrix-cell.filled-8 { background: #000d1a; }
+.matrix-cell.filled-9 { background: #001f40; }
+.matrix-cell.filled-10 { background: #003366; }
 
 @media (max-width: 768px) {
     .main-container {
         flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
     }
     .left-panel,
     .right-panel {
         width: 100%;
     }
     .left-panel {
-        border-right: none;
-        border-bottom: 2px solid #e0e0e0;
+        position: static;
+        padding: 1.5rem;
     }
     header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     .matrix-cell {
         width: 35px;
         height: 35px;
         font-size: 0.9rem;
+    }
+    .matrix-section {
+        padding: 2rem;
     }
 }
